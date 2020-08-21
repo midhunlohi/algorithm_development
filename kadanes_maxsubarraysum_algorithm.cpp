@@ -9,13 +9,22 @@
 class Solution{
 	public:
 		int maxSubArraySum( vector <int> nums ){
-			int currentsum = 0;
-			int bestsum = 0;
-			for(int i = 0 ; i < nums.size() ; i++){
-				currentsum = max( 0 , currentsum + nums[i] );
-				bestsum = max( bestsum , currentsum );
+			// variables
+			int curSum = 0;
+			int bestSum = INT_MIN;
+
+			//loop
+			for (int i = 0; i < nums.size(); i++) {
+					curSum = curSum + nums[i];
+					if (curSum < nums[i])
+					{
+							curSum = nums[i];
+					}
+					bestSum = max( curSum, bestSum );
 			}
-			return bestsum;		
+
+			//return
+			return bestSum;
 		}
 };
 
