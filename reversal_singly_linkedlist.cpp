@@ -18,7 +18,7 @@ public:
 
 		// Operation on the current and previous node
 		curr->next = prev;
-		node->next = NULL;
+		prev->next = NULL;
 
 		// Return head of the linked list
 		return head;
